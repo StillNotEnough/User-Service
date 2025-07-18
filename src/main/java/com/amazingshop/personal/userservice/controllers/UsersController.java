@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
-public class AdminController {
+public class UserController {
 
     private final AdminService adminService;
     private final PeopleService peopleService;
