@@ -6,6 +6,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,7 +17,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 @Component
+@Slf4j
 public class JwtFilter extends OncePerRequestFilter {
+
     private final JwtUtil jwtUtil;
     private final PeopleDetailsService peopleDetailsService;
 
@@ -36,6 +39,7 @@ public class JwtFilter extends OncePerRequestFilter {
                 String jwt = authHeader.substring(7);
 
                 if (jwt.isEmpty()) {
+                    log.warn("Empty JWT token in Authorization header");
                     response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid JWT token in Bearer Header");
                     return;
                 }
@@ -48,6 +52,7 @@ public class JwtFilter extends OncePerRequestFilter {
                                 userDetails.getAuthorities());
                 if (SecurityContextHolder.getContext().getAuthentication() == null) {
                     SecurityContextHolder.getContext().setAuthentication(authToken);
+                    log.debug("Successfully authenticated user: {}", username);
                 }
             }
         } finally {
