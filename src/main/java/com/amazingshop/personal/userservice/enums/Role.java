@@ -1,4 +1,4 @@
-package com.amazingshop.personal.userservice.models;
+package com.amazingshop.personal.userservice.enums;
 
 public enum Role {
     USER, // index 0
