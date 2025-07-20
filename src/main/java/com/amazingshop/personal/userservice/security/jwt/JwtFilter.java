@@ -1,4 +1,4 @@
-package com.amazingshop.personal.userservice.config;
+package com.amazingshop.personal.userservice.security.jwt;
 
 import com.amazingshop.personal.userservice.security.JwtUtil;
 import com.amazingshop.personal.userservice.services.PeopleDetailsService;
@@ -56,7 +56,6 @@ public class JwtFilter extends OncePerRequestFilter {
                 }
             }
         } finally {
-            // Продвигаем запрос дальше по цепочке фильтров
             filterChain.doFilter(request, response);
         }
     }

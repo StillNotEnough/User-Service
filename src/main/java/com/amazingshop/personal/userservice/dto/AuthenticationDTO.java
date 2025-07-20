@@ -12,5 +12,6 @@ public class AuthenticationDTO {
     private String username;
 
     @NotEmpty(message = "Password should be not empty")
+    @Size(min = 6, message = "Password should be at least 6 characters")
     private String password;
 }
