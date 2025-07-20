@@ -31,3 +31,15 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Логи и временные файлы ###
+logs/
+*.log
+*.log.*
+*.tmp
+*.temp
+
+### Environment переменные ###
+.env
+.env.local
+.env.*.local
