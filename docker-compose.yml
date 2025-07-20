@@ -16,7 +16,7 @@ services:
       - "8081:8080"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/amazingshop_db
-      - JWT_SECRET=mF9Xwa6J7FvmsrTwO4z+AROq3EKkUGe1/XQ5IwP/mat5tjPR7hriOq/SuIu57Zjxa3v6P6WuzyLpisugR2xSRg
+      - JWT_SECRET= J8lmA/2UB0LVetCzCJs0N3alkrts9VgElzDkHMwAo7D0VbagxHadA6I4qsgMIg3p8orKaTFJq6IE35q8oIsFHQ==
     depends_on:
       - postgres
 

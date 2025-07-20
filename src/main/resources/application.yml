@@ -49,7 +49,7 @@ server:
 
   # JWT configuration
 jwt:
-  secret: ${JWT_SECRET:mF9Xwa6J7FvmsrTwO4z+AROq3EKkUGe1/XQ5IwP/mat5tjPR7hriOq/SuIu57Zjxa3v6P6WuzyLpisugR2xSRg}
+  secret: ${JWT_SECRET:J8lmA/2UB0LVetCzCJs0N3alkrts9VgElzDkHMwAo7D0VbagxHadA6I4qsgMIg3p8orKaTFJq6IE35q8oIsFHQ==}
   expiration: ${JWT_EXPIRATION:3600}
 
 # Logging configuration
