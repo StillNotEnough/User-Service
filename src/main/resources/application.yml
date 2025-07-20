@@ -1,0 +1,76 @@
+# Application configuration
+spring:
+  application:
+    name: user-service
+
+  # Database configuration
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/amazingshop_db
+    username: matvey33
+    password: amazingShop
+
+    # Connection pool settings (HikariCP)
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  # JPA/Hibernate configuration
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+    # Hibernate properties
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+
+        # Performance optimizations
+        jdbc:
+          batch_size: 25
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+
+  # Security configuration
+  security:
+    bcrypt:
+      strength: 12
+
+# Server configuration
+server:
+  port: 8080
+
+  # JWT configuration
+jwt:
+  secret: ${JWT_SECRET:mF9Xwa6J7FvmsrTwO4z+AROq3EKkUGe1/XQ5IwP/mat5tjPR7hriOq/SuIu57Zjxa3v6P6WuzyLpisugR2xSRg}
+  expiration: ${JWT_EXPIRATION:3600}
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.amazingshop: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  file:
+    name: logs/app.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - %msg%n"
+
+# Actuator (для мониторинга)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when_authorized
