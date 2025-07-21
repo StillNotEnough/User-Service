@@ -6,6 +6,7 @@ import com.amazingshop.personal.userservice.security.details.PersonDetailsImpl;
 import com.amazingshop.personal.userservice.services.AdminService;
 import com.amazingshop.personal.userservice.services.ConverterService;
 import com.amazingshop.personal.userservice.services.PeopleService;
+import com.amazingshop.personal.userservice.util.responses.PersonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -92,14 +93,14 @@ public class UsersController {
      */
     @GetMapping("/admin/all")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<PersonDTO>> getAllUsers() {
+    public ResponseEntity<PersonResponse> getAllUsers() {
         List<Person> persons = peopleService.findAll();
         List<PersonDTO> personDTOs = persons.stream()
                 .map(converterService::convertedToPersonDTO)
                 .toList();
 
         log.info("All users requested by admin, count: {}", personDTOs.size());
-        return ResponseEntity.ok(personDTOs);
+        return ResponseEntity.ok(new PersonResponse(personDTOs));
     }
 
     /**
