@@ -6,9 +6,9 @@ spring:
   # Database configuration
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/amazingshop_db
-    username: matvey33
-    password: amazingShop
+    url: jdbc:postgresql://localhost:5432/userservice_db
+    username: postgres
+    password: postgres
 
     # Connection pool settings (HikariCP)
     hikari:
