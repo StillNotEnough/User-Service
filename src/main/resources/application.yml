@@ -6,9 +6,9 @@ spring:
   # Database configuration
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/userservice_db
-    username: postgres
-    password: postgres
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
 
     # Connection pool settings (HikariCP)
     hikari:
@@ -49,8 +49,8 @@ server:
 
   # JWT configuration
 jwt:
-  secret: ${JWT_SECRET:J8lmA/2UB0LVetCzCJs0N3alkrts9VgElzDkHMwAo7D0VbagxHadA6I4qsgMIg3p8orKaTFJq6IE35q8oIsFHQ==}
-  expiration: ${JWT_EXPIRATION:3600}
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
 
 # Logging configuration
 logging:
