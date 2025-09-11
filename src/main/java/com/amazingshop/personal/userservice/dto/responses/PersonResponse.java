@@ -1,6 +1,6 @@
-package com.amazingshop.personal.userservice.util.responses;
+package com.amazingshop.personal.userservice.dto.responses;
 
-import com.amazingshop.personal.userservice.dto.PersonDTO;
+import com.amazingshop.personal.userservice.dto.requests.PersonDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

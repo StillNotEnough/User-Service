@@ -1,13 +1,13 @@
 package com.amazingshop.personal.userservice.controllers;
 
 
-import com.amazingshop.personal.userservice.dto.AuthenticationDTO;
-import com.amazingshop.personal.userservice.dto.PersonDTO;
+import com.amazingshop.personal.userservice.dto.requests.AuthenticationDTO;
+import com.amazingshop.personal.userservice.dto.requests.PersonDTO;
 import com.amazingshop.personal.userservice.models.Person;
 import com.amazingshop.personal.userservice.security.JwtUtil;
 import com.amazingshop.personal.userservice.services.ConverterService;
 import com.amazingshop.personal.userservice.services.RegistrationService;
-import com.amazingshop.personal.userservice.util.responses.JwtResponse;
+import com.amazingshop.personal.userservice.dto.responses.JwtResponse;
 import com.amazingshop.personal.userservice.util.validators.PersonValidator;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

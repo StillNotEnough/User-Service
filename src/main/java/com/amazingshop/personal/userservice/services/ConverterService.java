@@ -1,6 +1,6 @@
 package com.amazingshop.personal.userservice.services;
 
-import com.amazingshop.personal.userservice.dto.PersonDTO;
+import com.amazingshop.personal.userservice.dto.requests.PersonDTO;
 import com.amazingshop.personal.userservice.models.Person;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

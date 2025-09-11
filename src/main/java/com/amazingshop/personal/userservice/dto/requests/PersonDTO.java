@@ -1,4 +1,4 @@
-package com.amazingshop.personal.userservice.dto;
+package com.amazingshop.personal.userservice.dto.requests;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;

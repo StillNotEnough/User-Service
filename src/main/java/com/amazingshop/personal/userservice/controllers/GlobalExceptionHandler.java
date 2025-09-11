@@ -1,6 +1,6 @@
 package com.amazingshop.personal.userservice.controllers;
 
-import com.amazingshop.personal.userservice.util.responses.ErrorResponse;
+import com.amazingshop.personal.userservice.dto.responses.ErrorResponse;
 import com.amazingshop.personal.userservice.util.exceptions.PersonNotFoundException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import lombok.extern.slf4j.Slf4j;

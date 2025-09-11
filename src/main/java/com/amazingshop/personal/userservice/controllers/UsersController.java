@@ -1,12 +1,12 @@
 package com.amazingshop.personal.userservice.controllers;
 
-import com.amazingshop.personal.userservice.dto.PersonDTO;
+import com.amazingshop.personal.userservice.dto.requests.PersonDTO;
 import com.amazingshop.personal.userservice.models.Person;
 import com.amazingshop.personal.userservice.security.details.PersonDetailsImpl;
 import com.amazingshop.personal.userservice.services.AdminService;
 import com.amazingshop.personal.userservice.services.ConverterService;
 import com.amazingshop.personal.userservice.services.PeopleService;
-import com.amazingshop.personal.userservice.util.responses.PersonResponse;
+import com.amazingshop.personal.userservice.dto.responses.PersonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

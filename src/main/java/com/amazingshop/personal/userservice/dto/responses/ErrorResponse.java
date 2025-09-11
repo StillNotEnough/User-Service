@@ -1,4 +1,4 @@
-package com.amazingshop.personal.userservice.util.responses;
+package com.amazingshop.personal.userservice.dto.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
