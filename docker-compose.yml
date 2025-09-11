@@ -1,31 +1,35 @@
 services:
   postgres:
-    image: postgres:15
+    image: postgres:16
     environment:
       POSTGRES_DB: userservice_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5433:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
       interval: 10s
       timeout: 5s
       retries: 5
+    volumes:
+      - db_data:/var/lib/postgresql/data
 
   user-service:
+    image: user-service
     build: .
     ports:
       - "8081:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/userservice_db
-      - JWT_SECRET=${JWT_SECRET:J8lmA/2UB0LVetCzCJs0N3alkrts9VgElzDkHMwAo7D0VbagxHadA6I4qsgMIg3p8orKaTFJq6IE35q8oIsFHQ==}
+        - SPRING_DATASOURCE_URL=${DB_URL}
+        - SPRING_DATASOURCE_USERNAME=${DB_USER}
+        - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+        - JWT_SECRET=${JWT_SECRET}
+        - JWT_EXPIRATION=${JWT_EXPIRATION}
     depends_on:
       postgres:
         condition: service_healthy
     restart: unless-stopped
 
 volumes:
-  postgres_data:
+  db_data:
